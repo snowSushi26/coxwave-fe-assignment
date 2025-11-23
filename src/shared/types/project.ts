@@ -1,5 +1,5 @@
 export interface Project {
   id: string;
-  name: string;
-  timezone: string;
+  displayName: string;
+  timeZone: string;
 }

@@ -15,20 +15,19 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
   selectedProjectId,
   onProjectChange,
 }) => {
-  const options = projects.map(project => ({
+  const options = projects.map((project) => ({
     value: project.id,
-    label: project.name,
+    label: project.displayName,
   }));
 
   return (
-    <div className="w-48">
+    <div className='w-48'>
       <Select
         options={options}
         value={selectedProjectId}
         onChange={(e) => onProjectChange(e.target.value)}
-        label="Project"
+        label='Project'
       />
     </div>
   );
 };
-
