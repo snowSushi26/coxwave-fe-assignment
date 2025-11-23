@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 김설회 과제
 
-## Getting Started
+## 라이브러리
 
-First, run the development server:
+- date-fns & date-fns-tz: 날짜 조작 및 타임존 적용 하기위해 사용.
+- react-datepicker: 빠른 데이트피커 개발을 위해 사용.
+- clsx: 조건부 클래스 관리 및 병합을 위해 사용했습니다.
+- class-variance-authority: 기능별 및 속성별 스타일 매핑을 하기위해 사용
+
+### 요구사항
+
+- [x] Next.js v15.4이상
+- [x] Node v22.x.x 사용
+- [x] Chrome 130+
+  - [ ] 호환성 테스트
+
+## 과제 구현 내용
+
+### 프로젝트 선택 기능
+
+- [x] 드롭다운 메뉴를 통해 사용자가 프로젝트를 선택할 수 있습니다.
+
+### 기간(Period) 선택 기능
+
+- [x] 사전 정의된 기간 옵션 제공
+  - [x] Today: 금일 00시 ~ 현재
+  - [x] Yesterday: 작일 00시 ~ 금일 00시
+  - [x] This Week: 금주 월요일 00시 ~ 현재
+  - [x] Last 30 Days: 29일 전 00시 ~ 현재
+  - [x] Custom: 선택한 시작일 00시 ~ 선택한 종료일 + 1일의 00시
+- [x] Custom을 선택하면 DatePicker를 이용해 기간을 선택할 수 있습니다.
+- [x] 시간 단위 선택은 지원하지 않습니다.
+- [x] 모든 시간은 선택된 프로젝트의 Timezone 기준
+
+### 이벤트 목록
+
+- [x] ID, Type, CreateTime을 표시하고 CreateTime은 Jul 7, 2023, 1:21 AM 과 같은 형식으로 표시
+      합니다.
+- [x] 표시하는 CreateTime은 프로젝트에 설정된 Timezone을 기준으로 하여 표시합니다.
+
+### 페이지네이션 UI
+
+- [x] 이전 페이지, 다음 페이지 이동 기능을 제공합니다.
+- [x] 한 페이지에 표시하는 항목 개수의 기본값은 15입니다.
+- [x] 현재 탐색중인 페이지를 나타내는 정보를 표시합니다.
+  - [x] 이는 보고 있는 항목들이 전체 목록에서 몇번째 위치하는 지를 표현합니다
+  - [x] 예를 들어 해당 기간에 존재하는 이벤트가 32개이고, 두번째 페이지를 보고 있다면 16-30
+        / 32 로 표현합니다.
+
+## 빌드 및 실행
+
+### 빌드
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 실행
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+yarn dev
+```
