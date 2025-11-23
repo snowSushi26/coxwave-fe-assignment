@@ -7,4 +7,3 @@ export function getProjectById(projects: Project[], id: string): Project | undef
 export function getProjectTimezone(project: Project): string {
   return project.timeZone;
 }
-
