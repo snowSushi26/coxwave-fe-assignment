@@ -1,1 +1,1 @@
-export * from './eventApi';
+export { fetchProjects, fetchEvents } from './eventApi';

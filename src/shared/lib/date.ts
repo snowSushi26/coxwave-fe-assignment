@@ -1,6 +1,6 @@
 import { startOfDay, startOfWeek, subDays } from 'date-fns';
 import { formatInTimeZone, toZonedTime } from 'date-fns-tz';
-import type { PeriodType, DateRange } from '../types';
+import type { PeriodType, DateRange } from '@/shared/types';
 
 export function getPeriodDateRange(
   periodType: PeriodType,
@@ -64,6 +64,10 @@ export function formatDateInTimezone(
   return formatInTimeZone(dateObj, timezone, formatString);
 }
 
+/**
+ * DateRange를 ConnectRPC 필터 문자열로 변환
+ * 형식: create_time >= "2012-03-04T05:06:07Z" AND create_time < "2012-03-05T05:06:07Z"
+ */
 export function createEventFilter(dateRange: DateRange): string {
   const startUTC = formatInTimeZone(dateRange.startDate, 'UTC', "yyyy-MM-dd'T'HH:mm:ss'Z'");
   const endUTC = formatInTimeZone(dateRange.endDate, 'UTC', "yyyy-MM-dd'T'HH:mm:ss'Z'");
