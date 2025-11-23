@@ -1,4 +1,4 @@
-import { format, startOfDay, startOfWeek, subDays } from 'date-fns';
+import { startOfDay, startOfWeek, subDays } from 'date-fns';
 import { formatInTimeZone, toZonedTime } from 'date-fns-tz';
 import type { PeriodType, DateRange } from '../types';
 
@@ -62,4 +62,11 @@ export function formatDateInTimezone(
 ): string {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
   return formatInTimeZone(dateObj, timezone, formatString);
+}
+
+export function createEventFilter(dateRange: DateRange): string {
+  const startUTC = formatInTimeZone(dateRange.startDate, 'UTC', "yyyy-MM-dd'T'HH:mm:ss'Z'");
+  const endUTC = formatInTimeZone(dateRange.endDate, 'UTC', "yyyy-MM-dd'T'HH:mm:ss'Z'");
+
+  return `create_time >= "${startUTC}" AND create_time < "${endUTC}"`;
 }
