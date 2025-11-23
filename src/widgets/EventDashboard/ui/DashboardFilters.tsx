@@ -1,12 +1,13 @@
 import React from 'react';
 import { ProjectSelector } from '@/widgets/ProjectSelector';
 import { PeriodSelector } from '@/widgets/PeriodSelector';
-import type { Project, PeriodType } from '@/shared/types';
+import type { Project, PeriodType, DateRange } from '@/shared/types';
 
 interface DashboardFiltersProps {
   projects: Project[];
   selectedProjectId: string;
   selectedPeriod: PeriodType;
+  defaultDateRange: DateRange;
   onProjectChange: (projectId: string) => void;
   onPeriodChange: (period: PeriodType) => void;
   onCustomDateChange: (startDate: Date, endDate: Date) => void;
@@ -16,6 +17,7 @@ export const DashboardFilters: React.FC<DashboardFiltersProps> = ({
   projects,
   selectedProjectId,
   selectedPeriod,
+  defaultDateRange,
   onProjectChange,
   onPeriodChange,
   onCustomDateChange,
@@ -30,6 +32,7 @@ export const DashboardFilters: React.FC<DashboardFiltersProps> = ({
 
       <PeriodSelector
         selectedPeriod={selectedPeriod}
+        defaultDateRange={defaultDateRange}
         onPeriodChange={onPeriodChange}
         onCustomDateChange={onCustomDateChange}
       />

@@ -11,8 +11,11 @@ interface UseDashboardStateProps {
 
 export function useDashboardState({ initialProjects }: UseDashboardStateProps) {
   const [selectedProjectId, setSelectedProjectId] = useState<string>('');
-  const [selectedPeriod, setSelectedPeriod] = useState<PeriodType>('today');
-  const [customDateRange, setCustomDateRange] = useState<DateRange | null>(null);
+  const [selectedPeriod, setSelectedPeriod] = useState<PeriodType>('custom');
+  const [customDateRange, setCustomDateRange] = useState<DateRange | null>({
+    startDate: new Date('2024-11-01'),
+    endDate: new Date('2025-01-01'),
+  });
   const [currentPage, setCurrentPage] = useState(1);
 
   const projects = initialProjects;
@@ -61,6 +64,7 @@ export function useDashboardState({ initialProjects }: UseDashboardStateProps) {
     projects,
     actualSelectedProjectId,
     selectedPeriod,
+    dateRange,
     timezone,
     allEvents,
     paginatedEvents,

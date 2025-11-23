@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cva } from 'class-variance-authority';
 import { DatePicker, Button } from '@/shared/ui';
-import type { PeriodType, PeriodOption } from '@/shared/types';
+import type { PeriodType, PeriodOption, DateRange } from '@/shared/types';
 
 interface PeriodSelectorProps {
   selectedPeriod: PeriodType;
+  defaultDateRange: DateRange;
   onPeriodChange: (period: PeriodType) => void;
   onCustomDateChange?: (startDate: Date, endDate: Date) => void;
 }
@@ -36,12 +37,22 @@ const periodButtonVariants = cva(
 
 export const PeriodSelector: React.FC<PeriodSelectorProps> = ({
   selectedPeriod,
+  defaultDateRange,
   onPeriodChange,
   onCustomDateChange,
 }) => {
-  const [showCustomPicker, setShowCustomPicker] = useState(false);
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
+  const [showCustomPicker, setShowCustomPicker] = useState(selectedPeriod === 'custom');
+  const [startDate, setStartDate] = useState<Date | null>(defaultDateRange.startDate);
+  const [endDate, setEndDate] = useState<Date | null>(defaultDateRange.endDate);
+
+  useEffect(() => {
+    setStartDate(defaultDateRange.startDate);
+    setEndDate(defaultDateRange.endDate);
+  }, [defaultDateRange]);
+
+  useEffect(() => {
+    setShowCustomPicker(selectedPeriod === 'custom');
+  }, [selectedPeriod]);
 
   const handlePeriodClick = (period: PeriodType) => {
     onPeriodChange(period);

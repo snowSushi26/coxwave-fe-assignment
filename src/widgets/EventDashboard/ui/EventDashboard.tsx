@@ -16,6 +16,7 @@ export const EventDashboard: React.FC<EventDashboardProps> = ({ initialProjects 
     projects,
     actualSelectedProjectId,
     selectedPeriod,
+    dateRange,
     timezone,
     allEvents,
     paginatedEvents,
@@ -39,6 +40,7 @@ export const EventDashboard: React.FC<EventDashboardProps> = ({ initialProjects 
             projects={projects}
             selectedProjectId={actualSelectedProjectId}
             selectedPeriod={selectedPeriod}
+            defaultDateRange={dateRange}
             onProjectChange={handleProjectChange}
             onPeriodChange={handlePeriodChange}
             onCustomDateChange={handleCustomDateChange}
