@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@buf/alignai_frontend-challenge-datetz.bufbuild_es": "^2.10.1-20241219080248-3c3bb9f9b2aa.1",
+    "@connectrpc/connect": "^2.1.1",
+    "@connectrpc/connect-web": "^2.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
