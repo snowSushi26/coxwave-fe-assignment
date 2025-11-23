@@ -12,7 +12,7 @@
 - [x] Next.js v15.4이상
 - [x] Node v22.x.x 사용
 - [x] Chrome 130+
-  - [ ] 호환성 테스트
+  - [x] 호환성 테스트 (Playwright)
 
 ## 과제 구현 내용
 
@@ -49,14 +49,23 @@
 
 ## 빌드 및 실행
 
-### 빌드
+### 설치
 
 ```bash
-yarn
+npm install
 ```
 
-### 실행
+### 개발 서버 실행
 
 ```bash
-yarn dev
+npm run dev
+```
+
+## Chrome 130+ 호환성 테스트
+
+### 테스트
+
+```bash
+npx playwright install chromium
+npm run test
 ```
