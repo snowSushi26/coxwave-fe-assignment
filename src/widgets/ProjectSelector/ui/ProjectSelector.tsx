@@ -26,7 +26,6 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
         options={options}
         value={selectedProjectId}
         onChange={(e) => onProjectChange(e.target.value)}
-        label='Project'
       />
     </div>
   );
