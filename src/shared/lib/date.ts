@@ -37,7 +37,10 @@ export function getPeriodDateRange(
 
     case 'custom':
       if (!customRange) {
-        throw new Error('Custom range required for custom period type');
+        return {
+          startDate: startOfDay(now),
+          endDate: now,
+        };
       }
       return {
         startDate: startOfDay(customRange.startDate),
