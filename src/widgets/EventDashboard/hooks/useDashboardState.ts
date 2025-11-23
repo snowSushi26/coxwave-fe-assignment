@@ -1,18 +1,21 @@
 import { useState, useMemo } from 'react';
 import { getPeriodDateRange } from '@/shared/lib';
 import { paginateEvents, useEvents } from '@/entities/event';
-import { useProjects } from '@/entities/project';
-import type { PeriodType, DateRange } from '@/shared/types';
+import type { PeriodType, DateRange, Project } from '@/shared/types';
 
 const ITEMS_PER_PAGE = 15;
 
-export function useDashboardState() {
+interface UseDashboardStateProps {
+  initialProjects: Project[];
+}
+
+export function useDashboardState({ initialProjects }: UseDashboardStateProps) {
   const [selectedProjectId, setSelectedProjectId] = useState<string>('');
   const [selectedPeriod, setSelectedPeriod] = useState<PeriodType>('today');
   const [customDateRange, setCustomDateRange] = useState<DateRange | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { projects, loading: projectsLoading, error: projectsError } = useProjects();
+  const projects = initialProjects;
 
   const actualSelectedProjectId = selectedProjectId || projects[0]?.id || '';
   const selectedProject = projects.find((p) => p.id === actualSelectedProjectId);
@@ -62,9 +65,7 @@ export function useDashboardState() {
     allEvents,
     paginatedEvents,
     currentPage,
-    projectsLoading,
     eventsLoading,
-    projectsError,
     eventsError,
     handleProjectChange,
     handlePeriodChange,
@@ -73,4 +74,3 @@ export function useDashboardState() {
     ITEMS_PER_PAGE,
   };
 }
-
