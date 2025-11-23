@@ -15,4 +15,3 @@ export function paginateEvents(events: Event[], page: number, itemsPerPage: numb
   const endIndex = startIndex + itemsPerPage;
   return events.slice(startIndex, endIndex);
 }
-
