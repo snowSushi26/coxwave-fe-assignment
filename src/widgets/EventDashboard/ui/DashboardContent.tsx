@@ -10,6 +10,7 @@ interface DashboardContentProps {
   currentPage: number;
   totalItems: number;
   itemsPerPage: number;
+  eventsCount: number;
   onPageChange: (page: number) => void;
 }
 
@@ -20,11 +21,15 @@ export const DashboardContent: React.FC<DashboardContentProps> = ({
   currentPage,
   totalItems,
   itemsPerPage,
+  eventsCount,
   onPageChange,
 }) => {
   return (
     <>
       <div className='mb-6'>
+        <strong>
+          <p className='text-gray-600 mb-2'>{isLoading ? 'Loading...' : `${eventsCount} events`}</p>
+        </strong>
         {isLoading ? (
           <div className='text-center py-8 text-gray-500'>Loading events...</div>
         ) : (

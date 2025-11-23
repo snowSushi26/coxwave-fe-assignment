@@ -36,11 +36,7 @@ export const EventDashboard: React.FC = () => {
     <div className='min-h-screen bg-gray-50 py-8'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='bg-background rounded-lg shadow-sm p-6'>
-          <DashboardHeader
-            eventsCount={allEvents.length}
-            isLoading={eventsLoading}
-            error={projectsError || eventsError}
-          />
+          <DashboardHeader error={projectsError || eventsError} />
 
           <DashboardFilters
             projects={projects}
@@ -53,6 +49,7 @@ export const EventDashboard: React.FC = () => {
 
           <DashboardContent
             events={paginatedEvents}
+            eventsCount={allEvents.length}
             timezone={timezone}
             isLoading={eventsLoading}
             currentPage={currentPage}
