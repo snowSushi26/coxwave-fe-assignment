@@ -15,16 +15,16 @@ export const EventList: React.FC<EventListProps> = ({ events, timezone }) => {
     () => [
       {
         header: 'ID',
-        accessor: 'id',
+        key: 'id',
       },
       {
         header: 'Type',
-        accessor: 'type',
+        key: 'type',
         render: (event) => event.type || '-',
       },
       {
         header: 'CreateTime',
-        accessor: 'createTime',
+        key: 'createTime',
         render: (event) => formatDateInTimezone(event.createTime, timezone),
       },
     ],

@@ -1,2 +1,1 @@
-export * from './PeriodSelector';
-
+export { PeriodSelector } from './ui/PeriodSelector';

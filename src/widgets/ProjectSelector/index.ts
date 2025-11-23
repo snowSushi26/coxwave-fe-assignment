@@ -1,2 +1,1 @@
-export * from './ProjectSelector';
-
+export { ProjectSelector } from './ui/ProjectSelector';
