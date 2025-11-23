@@ -12,7 +12,7 @@ const inputVariants = cva(
       },
       inputSize: {
         sm: 'h-8 text-xs',
-        md: 'h-10 text-sm',
+        md: 'h-9 text-sm',
         lg: 'h-12 text-base',
       },
     },
@@ -29,13 +29,7 @@ interface InputProps
   label?: string;
 }
 
-export const Input: React.FC<InputProps> = ({
-  variant,
-  inputSize,
-  className,
-  label,
-  ...props
-}) => {
+export const Input: React.FC<InputProps> = ({ variant, inputSize, className, label, ...props }) => {
   return (
     <div className='flex flex-col gap-1.5'>
       {label && <label className='text-sm font-medium text-gray-700'>{label}</label>}
@@ -43,4 +37,3 @@ export const Input: React.FC<InputProps> = ({
     </div>
   );
 };
-
