@@ -3,7 +3,7 @@ import { cn } from '@/shared/lib';
 
 export interface Column<T> {
   header: string;
-  accessor: keyof T | string;
+  key: keyof T | string;
   render?: (item: T) => React.ReactNode;
   className?: string;
 }
@@ -61,7 +61,7 @@ export function Table<T>({
                   >
                     {column.render
                       ? column.render(item)
-                      : String(item[column.accessor as keyof T] ?? '-')}
+                      : String(item[column.key as keyof T] ?? '-')}
                   </td>
                 ))}
               </tr>

@@ -71,7 +71,6 @@ export async function fetchEvents(
     }
 
     return data.events.map((e) => {
-      // JSON 응답에서 createTime은 ISO string으로 온다
       let createTimeStr = '';
       if (typeof e.createTime === 'string') {
         createTimeStr = e.createTime;
